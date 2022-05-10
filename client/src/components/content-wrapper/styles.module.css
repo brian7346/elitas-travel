@@ -1,0 +1,9 @@
+.container {
+    display: flex;
+    max-width: 1234px;
+    width: 100%;
+    margin: 0px auto;
+    padding: 0 30px;
+    position: relative;
+    z-index: 2;
+}

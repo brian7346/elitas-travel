@@ -1,0 +1,45 @@
+.planeItem {
+    position: relative;
+    cursor: pointer;
+}
+
+.image {
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+    border-radius: 20px;
+    transform: scale(1.04);
+}
+
+.capacity {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    font-size: 24px;
+    background: linear-gradient(200.44deg, #4316DB 13.57%, #9076E7 98.38%);
+    color: #FFFFFF;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    z-index: 2;
+}
+
+.info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    color: white;
+    background: rgba(50, 61, 109, 0.5);
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.title {
+    font-size: 24px;
+}
+
+.price {
+    font-size: 30px;
+    font-weight: bold;
+    color: #2FB5FC;
+}

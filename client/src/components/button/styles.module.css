@@ -1,0 +1,17 @@
+.button {
+    padding: 8px 12px;
+    font-size: 14px;
+    border-radius: 8px;
+    border: none;
+    background-color: #2FB5FC;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+}
+
+.backButton {
+    font-size: 14px;
+    font-weight: bold;
+    color: rgb(148, 163, 184);
+    cursor: pointer;
+}

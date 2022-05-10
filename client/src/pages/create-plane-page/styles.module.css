@@ -1,0 +1,30 @@
+.createPlane {
+    display: flex;
+    flex-direction: column;
+    min-height: 50vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.form {
+    background: rgba(50, 61, 109, 0.5);
+    border: 0.5px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0px 50px 100px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(40px);
+    border-radius: 20px;
+    padding: 30px;
+    width: 50vh;
+}
+
+.title {
+    font-size: 40px;
+}
+
+.buttonContainer {
+    padding: 20px 0;
+}
+
+.backButtonContainer {
+    width: 50vh;
+    margin-bottom: 20px;
+}
