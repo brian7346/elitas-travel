@@ -20,7 +20,7 @@ if (process.env.NODE_ENV === "production") {
   });
 }
 
-mongoose.connect("mongodb://rocky-harbor-85194.herokuapp:27017").then(() => {
+mongoose.connect("mongodb://mongodb0.rocky-harbor-85194.herokuapp:27017").then(() => {
   app.listen(port, () => {
     console.log(`App listening on port ${port}`);
   });
