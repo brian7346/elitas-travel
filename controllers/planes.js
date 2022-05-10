@@ -73,7 +73,6 @@ const createPlane = async (req, res) => {
   
     res.status(201).json(plane);
   } catch(err) {
-    console.log(err)
     res.status(500).json({ message: "Не удалось создать самолет, повторите попытку познее" });
   }
 };
