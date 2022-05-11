@@ -8,7 +8,7 @@ export const useSortPlanes = (planes = []) => {
 
         sortablePlanes.sort((a, b) => {
             if (+a.price < +b.price) return isDescSort ? 1 : -1;
-            if (+a.price > b.price) return isDescSort ? -1 : 1;
+            if (+a.price > +b.price) return isDescSort ? -1 : 1;
 
             return 0;
         })
