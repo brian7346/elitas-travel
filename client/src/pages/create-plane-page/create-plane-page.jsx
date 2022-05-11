@@ -1,11 +1,11 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { Button } from "../../components/button";
 import { ContentWrapper } from "../../components/content-wrapper";
 import { Input } from "../../components/input";
 import { paths } from "../../paths";
-import { createPlane } from "../../store/plane/planeSlice";
+import { createPlane, resetPlaneErrors } from "../../store/plane/planeSlice";
 import styles from "./styles.module.css";
 
 export const CreatePlanePage = () => {
@@ -32,6 +32,8 @@ export const CreatePlanePage = () => {
       }
     });
   }, [capacity, description, dispatch, name, navigate, planeImage, price]);
+
+  useEffect(() => () => dispatch(resetPlaneErrors()),[dispatch])
 
   return (
     <ContentWrapper className={styles.createPlane}>

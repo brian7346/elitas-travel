@@ -26,6 +26,11 @@ const planeSlice = createSlice({
     message: '',
     errors: null
   },
+  reducers: {
+    resetPlaneErrors: (state) => {
+      state.errors = null;
+    }
+  },
   extraReducers: (builder) => {
     builder
       .addCase(getPlane.pending, (state) => {
@@ -57,4 +62,5 @@ const planeSlice = createSlice({
   }
 });
 
+export const { resetPlaneErrors } = planeSlice.actions;
 export default planeSlice.reducer;
