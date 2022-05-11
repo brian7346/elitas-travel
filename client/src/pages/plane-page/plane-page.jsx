@@ -23,10 +23,7 @@ export const PlanePage = () => {
     plane && (
       <ContentWrapper className={styles.plane}>
         <div className={styles.descContent}>
-          <Button
-            onClick={() => navigate(-1)}
-            isBackButton={ true }
-          >
+          <Button onClick={() => navigate(-1)} isBackButton={true}>
             Назад
           </Button>
           <h1 className={styles.title}>{plane.name}</h1>

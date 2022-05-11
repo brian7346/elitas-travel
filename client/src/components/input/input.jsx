@@ -13,7 +13,7 @@ export const Input = ({
     <div className={`${styles.container} ${containerClassname}`}>
       <input
         type={type}
-        name="name"
+        name={ name }
         className={styles.input}
         placeholder={placeholder}
         onChange={onChange}

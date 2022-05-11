@@ -1,45 +1,47 @@
-import React, { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { getPlanes } from '../../store/planes/planesSlice';
-import { Button } from '../button';
-import { ContentWrapper } from '../content-wrapper';
-import { PlaneItem } from '../plane-item';
-import { Spinner } from '../spinner';
-import styles from './styles.module.css';
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import { useSortPlanes } from "../../hooks/useSortPlanes";
+import { paths } from "../../paths";
+import { getPlanes } from "../../store/planes/planesSlice";
+import { Button } from "../button";
+import { ContentWrapper } from "../content-wrapper";
+import { PlaneItem } from "../plane-item";
+import { Spinner } from "../spinner";
+import styles from "./styles.module.css";
 
 export const Planes = () => {
   const dispatch = useDispatch();
-  const { planes, isLoading } = useSelector(state => state.planes)
-  const [ isAscSort, setAscSort ] = useState(true);
+  const { planes, isLoading } = useSelector((state) => state.planes);
+  const { isDescSort, setIsDescSort, sortedPlanes } = useSortPlanes(
+    planes || []
+  );
 
   useEffect(() => {
-      dispatch(getPlanes());
-  }, [dispatch])
+    dispatch(getPlanes());
+  }, [dispatch]);
 
-  if(isLoading) return <Spinner />
+  if (isLoading) return <Spinner />;
 
   return (
     <div>
-    <div className={ styles.sort }>
-      <ContentWrapper className={styles.planesHeader}>
-        <Button
-          className={ styles.sortBtn }
-          onClick={() => setAscSort(!isAscSort)}
-        >
-          Сортировать по цене {`${isAscSort ? '+' :'-'}`}
-        </Button>
-        <Link
-          to="/create-plane"
-          className={ styles.createPlaneBtn }
-        >
-          Добавить самолет
-        </Link>
+      <div className={styles.sort}>
+        <ContentWrapper className={styles.planesHeader}>
+          <Button
+            className={styles.sortBtn}
+            onClick={() => setIsDescSort(!isDescSort)}
+          >
+            Сортировать по цене {`${isDescSort ? "+" : "-"}`}
+          </Button>
+          <Link to={ paths.createPlane } className={styles.createPlaneBtn}>
+            Добавить самолет
+          </Link>
+        </ContentWrapper>
+      </div>
+      <ContentWrapper className={styles.planesGrid}>
+        {sortedPlanes &&
+          sortedPlanes.map((plane) => <PlaneItem key={plane._id} {...plane} />)}
       </ContentWrapper>
     </div>
-    <ContentWrapper className={styles.planesGrid}>
-        { planes && planes.map(plane => <PlaneItem key={plane._id} {...plane}/>)}
-    </ContentWrapper>
-    </div>
-  )
-}
+  );
+};

@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { paths } from "../../paths";
 import styles from "./styles.module.css";
 
 export const PlaneItem = ({
@@ -10,7 +11,7 @@ export const PlaneItem = ({
   capacity = ''
 }) => {
   return (
-    <Link to={`/plane/${_id}`} className={styles.planeItem}>
+    <Link to={`${paths.plane}/${_id}`} className={styles.planeItem}>
       <div className={ styles.capacity}>{ capacity }</div>
       { planeImage && <img className={styles.image} src={planeImage} alt=""/> }
       <div className={styles.info}>

@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { Button } from "../../components/button";
 import { ContentWrapper } from "../../components/content-wrapper";
 import { Input } from "../../components/input";
+import { paths } from "../../paths";
 import { createPlane } from "../../store/plane/planeSlice";
 import styles from "./styles.module.css";
 
@@ -25,12 +26,11 @@ export const CreatePlanePage = () => {
     formData.append("capacity", capacity);
     formData.append("planeImage", planeImage);
 
-    dispatch(createPlane(formData))
-      .then((res) => {
-        if (!res.error) {
-          navigate(`/plane/${res.payload._id}`, { replace: true })
-        }
-      })
+    dispatch(createPlane(formData)).then((res) => {
+      if (!res.error) {
+        navigate(`${paths.plane}/${res.payload._id}`, { replace: true });
+      }
+    });
   }, [capacity, description, dispatch, name, navigate, planeImage, price]);
 
   return (
