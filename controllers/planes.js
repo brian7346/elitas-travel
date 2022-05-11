@@ -47,7 +47,7 @@ const createPlane = async (req, res) => {
     errors.capacity = { message: "Пожалуйста, укажите вместимость" };
   }
 
-  if (req.body.capacity.length > 3) {
+  if (req.body.capacity.length > 2) {
     errors.capacity = { message: "Вместимость не может быть больше 99" };
   }
 
