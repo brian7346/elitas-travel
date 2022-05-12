@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 
+// Создаем схему
 const planeSchema = mongoose.Schema({
   name: {
     type: String,

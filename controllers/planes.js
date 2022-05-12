@@ -1,8 +1,13 @@
 const Plane = require("../modles/planes");
 
+/**
+ * Получить все самолеты
+ * @param {*} req 
+ * @param {*} res 
+ */
 const getPlanes = async (req, res) => {
   try {
-    // Список самолётов
+    // Получаем все самолеты из Монго
     const planes = await Plane.find();
 
     res.status(200).json(planes);
@@ -11,9 +16,14 @@ const getPlanes = async (req, res) => {
   }
 };
 
+/**
+ * Получить самолет по id
+ * @param {*} req 
+ * @param {*} res 
+ */
 const getPlane = async (req, res) => {
   try {
-    // Один самолет
+    // Получаем самолет из Монго
     const plane = await Plane.find({ _id: req.params.id });
 
     res.status(200).json(plane);
@@ -24,6 +34,11 @@ const getPlane = async (req, res) => {
   }
 };
 
+/**
+ * Создать самолет
+ * @param {*} req 
+ * @param {*} res 
+ */
 const createPlane = async (req, res) => {
   const errors = {};
 
@@ -62,7 +77,7 @@ const createPlane = async (req, res) => {
   try {
     const { name, price, description, capacity } = req.body;
   
-    // Самолёт для сохранения в Монго/Базу Данных
+    // Добавляем самолет в Монго
     const plane = await Plane.create({
       name,
       price,
